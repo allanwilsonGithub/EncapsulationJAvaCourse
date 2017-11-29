@@ -3,21 +3,26 @@ package com.allanwilson;
 public class Main {
 
     public static void main(String[] args) {
-        Player player = new Player();
-        player.name = "Allan";
-        player.health = 20;
-        player.weapon = "Sword";
+        EnhancedPlayer player = new EnhancedPlayer("Allan", 200, "Dirk");
+        System.out.println(player.getHealth());
+        player.loseHealth(71);
+        System.out.println(player.getHealth());
 
-        int damage = 10;
-        player.loseHealth(damage);
-        System.out.println("Health remaining: " + player.healthRemaining());
+        WilsonFamily ChooseAWilson = new WilsonFamily("Paula");
+        System.out.println("You selected: " + ChooseAWilson.getName());
 
-        damage = 11;
-        player.loseHealth(damage);
-        System.out.println("Health remaining: " + player.healthRemaining());
+        Printer AllansPrinter = new Printer(100,0,false);
+        System.out.println("Toner level = " + AllansPrinter.getTonerLevel());
+        AllansPrinter.fillUpToner(30);
+        System.out.println("Toner level = " + AllansPrinter.getTonerLevel());
+        AllansPrinter.fillUpToner(30);
+        System.out.println("Toner level = " + AllansPrinter.getTonerLevel());
 
-        EnhancedPlayer ePlayer = new EnhancedPlayer("Allan",150,"Peashooter");
-        System.out.println("Health: " + ePlayer.getHealth());
+        System.out.println("Pages printed: " + AllansPrinter.getPagesPrinted());
+        AllansPrinter.printPage(11);
+        System.out.println("Pages printed: " + AllansPrinter.getPagesPrinted());
 
     }
+
+
 }
